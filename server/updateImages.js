@@ -7,8 +7,13 @@ async function updateImages() {
     console.log("Connected to MongoDB");
 
     const result = await event.updateMany(
-      { imageUrl: null },
-      { $set: { imageUrl: "https://via.placeholder.com/400x200?text=Event" } }
+      {
+        $or: [
+          { imageUrl: null },
+          { imageUrl: { $regex: "via.placeholder.com" } }
+        ]
+      },
+      { $set: { imageUrl: "https://placehold.co/400x200?text=Event" } }
     );
 
     console.log(`Updated ${result.modifiedCount} events`);

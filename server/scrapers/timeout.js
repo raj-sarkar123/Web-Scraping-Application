@@ -5,7 +5,7 @@ export async function scrapeTimeout() {
       title: "Sydney Food Festival",
       venue: "Royal Botanic Garden",
       date: "2026-04-10",
-      image: "https://via.placeholder.com/400?text=Timeout",
+      image: "https://placehold.co/400x200?text=Timeout",
       eventUrl: "https://timeout.com/event/789",
       source: "timeout"
     }

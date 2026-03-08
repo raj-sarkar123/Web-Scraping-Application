@@ -168,7 +168,7 @@ function Events() {
                 >
                   <div className="w-full h-48 overflow-hidden relative">
                     <img
-                      src={event.imageUrl || "https://via.placeholder.com/400x200?text=Event"}
+                      src={event.imageUrl || "https://placehold.co/400x200?text=Event"}
                       alt={event.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -231,8 +231,8 @@ function Events() {
                       key={i}
                       onClick={() => setCurrentPage(i + 1)}
                       className={`size-12 rounded-2xl font-bold transition-all ${currentPage === i + 1
-                          ? "bg-blue-600 text-white shadow-lg shadow-blue-200"
-                          : "bg-white text-gray-600 border border-gray-100 hover:bg-gray-50"
+                        ? "bg-blue-600 text-white shadow-lg shadow-blue-200"
+                        : "bg-white text-gray-600 border border-gray-100 hover:bg-gray-50"
                         }`}
                     >
                       {i + 1}

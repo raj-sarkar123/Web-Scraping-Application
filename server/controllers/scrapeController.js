@@ -21,7 +21,7 @@ export async function scrapeAndSaveEvents(req, res) {
         existingEvent.dateTime = ev.date
           ? new Date(ev.date)
           : existingEvent.dateTime;
-        existingEvent.imageUrl = ev.image || "https://via.placeholder.com/400x200?text=Event";
+        existingEvent.imageUrl = ev.image || "https://placehold.co/400x200?text=Event";
         existingEvent.source = ev.source;
         existingEvent.lastScrapedAt = new Date();
 
@@ -36,7 +36,7 @@ export async function scrapeAndSaveEvents(req, res) {
           title: ev.title,
           venue: ev.venue,
           dateTime: ev.date ? new Date(ev.date) : null,
-          imageUrl: ev.image || "https://via.placeholder.com/400x200?text=Event",
+          imageUrl: ev.image || "https://placehold.co/400x200?text=Event",
           source: ev.source,
           eventUrl: ev.eventUrl,
           status: "new",
