@@ -13,7 +13,10 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const events = await event.find(
-      { status: { $in: ["imported", "updated"] } },
+      {
+        status: { $in: ["imported", "updated"] },
+        dateTime: { $gte: new Date() }
+      },
       {
         title: 1,
         venue: 1,
@@ -22,7 +25,9 @@ router.get("/", async (req, res) => {
         source: 1,
         eventUrl: 1
       }
-    ).sort({ dateTime: 1 });
+    )
+      .sort({ dateTime: 1 })
+      .limit(300);
 
     res.json(events);
   } catch (err) {

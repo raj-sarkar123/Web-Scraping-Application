@@ -21,4 +21,6 @@ const eventSchema = new mongoose.Schema({
   importedBy: String
 });
 
+eventSchema.index({ status: 1, dateTime: 1 });
+
 export default mongoose.model("event", eventSchema);

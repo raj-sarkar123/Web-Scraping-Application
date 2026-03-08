@@ -73,10 +73,10 @@ function Events() {
         eventId: selectedEvent._id,
       });
 
-      const url = selectedEvent.eventUrl.startsWith('http') 
-                  ? selectedEvent.eventUrl 
-                  : `https://${selectedEvent.eventUrl}`;
-      
+      const url = selectedEvent.eventUrl.startsWith('http')
+        ? selectedEvent.eventUrl
+        : `https://${selectedEvent.eventUrl}`;
+
       window.open(url, "_blank", "noopener,noreferrer");
       closeModal();
     } catch (err) {
@@ -106,7 +106,7 @@ function Events() {
         </div>
 
         <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
@@ -166,6 +166,13 @@ function Events() {
                   hover:shadow-[0_20px_50px_rgba(37,99,235,0.15)]
                   transition-all duration-500 overflow-hidden flex flex-col"
                 >
+                  <div className="w-full h-48 overflow-hidden relative">
+                    <img
+                      src={event.imageUrl || "https://via.placeholder.com/400x200?text=Event"}
+                      alt={event.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                   <div className="p-8 flex-grow relative">
                     <div className="mb-4">
                       <span className="text-[10px] font-bold tracking-widest uppercase bg-blue-50 text-blue-600 px-3 py-1 rounded-full">
@@ -217,17 +224,16 @@ function Events() {
                 >
                   <ChevronLeft className="size-6" />
                 </button>
-                
+
                 <div className="flex gap-2">
                   {[...Array(totalPages)].map((_, i) => (
                     <button
                       key={i}
                       onClick={() => setCurrentPage(i + 1)}
-                      className={`size-12 rounded-2xl font-bold transition-all ${
-                        currentPage === i + 1
+                      className={`size-12 rounded-2xl font-bold transition-all ${currentPage === i + 1
                           ? "bg-blue-600 text-white shadow-lg shadow-blue-200"
                           : "bg-white text-gray-600 border border-gray-100 hover:bg-gray-50"
-                      }`}
+                        }`}
                     >
                       {i + 1}
                     </button>
@@ -267,7 +273,7 @@ function Events() {
               onClick={closeModal}
               className="absolute inset-0 bg-gray-900/80 backdrop-blur-sm"
             />
-            
+
             <motion.div
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -287,7 +293,7 @@ function Events() {
 
               <h3 className="text-3xl font-black text-gray-900 mb-2">Secure your spot</h3>
               <p className="text-gray-500 mb-8 text-lg">
-                Enter your email to unlock tickets for <br/>
+                Enter your email to unlock tickets for <br />
                 <span className="font-bold text-blue-600 underline decoration-blue-100">
                   {selectedEvent.title}
                 </span>
